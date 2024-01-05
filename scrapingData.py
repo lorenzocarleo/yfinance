@@ -1,7 +1,7 @@
 import yfinance as yf
 
 # Define the ticker symbol
-tickerSymbol = 'AAPL'
+tickerSymbol = 'ARM.F'
 
 # Get data on this ticker
 tickerData = yf.Ticker(tickerSymbol)

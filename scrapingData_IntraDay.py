@@ -7,7 +7,7 @@ tickerSymbol = 'ARMH'
 tickerData = yf.Ticker(tickerSymbol)
 
 # Get intraday data
-intradayDf = tickerData.history(period='1d', interval='1m')  # Example: 1 day of data, 1-minute intervals
+intradayDf = tickerData.history(period='1mo', interval='1m')  # Example: 1 day of data, 1-minute intervals
 
 # See your data
 print(intradayDf)
