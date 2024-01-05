@@ -1,5 +1,5 @@
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 import pandas as pd
 
 # URL of Yahoo Finance Earnings Calendar
@@ -12,27 +12,19 @@ soup = BeautifulSoup(response.text, 'html.parser')
 # Find the table containing the earnings data
 earnings_table = soup.find('table', class_='W(100%)')
 
-# Parse table rows and extract data
+# Parse table rows and extract Symbol data
 rows = earnings_table.find_all('tr')[1:]  # Skip the header row
-earnings_data = []
+symbols = []
 
 for row in rows:
     cols = row.find_all('td')
-    earnings_data.append({
-        'Symbol': cols[0].text.strip(),
-        'Company': cols[1].text.strip(),
-        'Earnings Call Time': cols[2].text.strip(),
-        'EPS Estimate': cols[3].text.strip(),
-        'Reported EPS': cols[4].text.strip(),
-        'Surprise(%)': cols[5].text.strip()
-    })
+    symbol = cols[0].text.strip()  # Extract the symbol
+    symbols.append(symbol)
 
-# Convert the data to a DataFrame
-df = pd.DataFrame(earnings_data)
+# Convert the list of symbols to a DataFrame
+symbols_df = pd.DataFrame(symbols, columns=['Symbol'])
 
-df.head()  # Display the first few rows
+print(symbols_df)
 
-df.to_csv("Fyfinance/500list.csv")
-
-print (df)
+symbols_df.to_csv("ticker_symbols.csv", index=False)
 
