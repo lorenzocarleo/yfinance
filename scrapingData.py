@@ -1,7 +1,7 @@
 import yfinance as yf
 
 # Define the ticker symbol
-tickerSymbol = 'ARM.F'
+tickerSymbol = 'BKUH'
 
 # Get data on this ticker
 tickerData = yf.Ticker(tickerSymbol)
