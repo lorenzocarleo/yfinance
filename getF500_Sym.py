@@ -32,5 +32,7 @@ df = pd.DataFrame(earnings_data)
 
 df.head()  # Display the first few rows
 
+df.to_csv("Fyfinance/500list.csv")
+
 print (df)
 
