@@ -11,3 +11,4 @@ tickerDf = tickerData.history(period='1mo', interval='1d')  # Example: 1 month o
 
 # See your data
 print(tickerDf)
+
